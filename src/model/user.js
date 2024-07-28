@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
         type: String,
         required: true
     },
@@ -15,10 +19,20 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    about: {
+    confirmPassword: {
         type: String,
         required: true
+    },
+    profileUrl:{
+        type:String,
+        required:true
+
+    },
+    about:{
+        type:String,
+        
     }
+    
 });
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);

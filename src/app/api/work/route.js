@@ -16,7 +16,7 @@ export async function POST(request){
         await work.save()
         return NextResponse.json({
             success:true,
-            data:work
+            work
         })
 
 
@@ -37,7 +37,7 @@ export async function GET(request){
         const works = await Work.find()
         return NextResponse.json({
             success:true,
-            data:works
+            works
         })
     }catch(err){
         console.log(err)

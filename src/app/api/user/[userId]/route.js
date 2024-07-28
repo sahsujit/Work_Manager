@@ -51,10 +51,10 @@ export async function GET(request,{params}){
 export async function PUT(request, { params }) {
     try {
         const { userId } = params;
-        const { name, password, about } = await request.json();
+        const { firstName, lastName, password, confirmPassword, profileUrl, about } = await request.json();
 
         // Validate input
-        if (!userId || !name || !password || !about) {
+        if (!userId || !firstName || !password || !lastName || !confirmPassword || !profileUrl || !about) {
             return NextResponse.json({
                 success: false,
                 message: 'All fields are required',
@@ -71,15 +71,20 @@ export async function PUT(request, { params }) {
         }
 
         // Update user details
-        user.name = name;
-        user.password = password;  // Ideally, hash this password before saving
-        user.about = about;
+        user.firstName = firstName;
+        user.lastName = lastName;
+        user.password = password;
+        user.confirmPassword = confirmPassword;
+        user.profileUrl = profileUrl;
+        user.about = about
+         // Ideally, hash this password before saving
+       
 
         const updatedUser = await user.save();
 
         return NextResponse.json({
             success: true,
-            data: updatedUser,
+             updatedUser,
         });
 
     } catch (err) {
