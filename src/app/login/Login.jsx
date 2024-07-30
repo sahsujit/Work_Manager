@@ -10,6 +10,7 @@ import { userLogin } from '@/services/signup'
 import { useRouter } from 'next/navigation'
 import UserContext from '@/context/userContext'
 
+
 const Login = () => {
   const context = useContext(UserContext)
   const router = useRouter()
@@ -59,7 +60,7 @@ const Login = () => {
          alt="Pattern"
          width={558}
          height={504}
-         loading="lazy"
+         priority
          
        />
        <Image
@@ -67,7 +68,7 @@ const Login = () => {
          alt="Students"
          width={558}
          height={504}
-         loading="lazy"
+         priority
          
          className="absolute -top-4 right-4 z-10"
        />
@@ -138,3 +139,8 @@ const Login = () => {
 }
 
 export default Login
+
+
+
+
+

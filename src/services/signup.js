@@ -41,6 +41,7 @@ export async function userLogin(formData){
 export async function existingUser(){
 
         const response = await apiConnector.get("/api/currentUser")
+        // console.log(response.data)
         return response.data
 
 
@@ -58,3 +59,6 @@ export async function logout(){
 
 
 }
+
+
+

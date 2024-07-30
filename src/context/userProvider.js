@@ -4,17 +4,17 @@ import UserContext from './userContext'
 import { existingUser } from '@/services/signup'
 
 const UserProvider = ({children}) => {
-    const [user, setUser] = useState(undefined)
+    const [user, setUser] = useState(null)
 
     useEffect(()=>{
         async function load(){
             try{
                 const response = await existingUser();
                 console.log("response :",response)
-                setUser({...response})
+                setUser(response)
             }catch(err){
                 console.error(err)
-                setUser(undefined)
+                setUser(null)
             }
         }
         load()

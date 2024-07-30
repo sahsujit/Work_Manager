@@ -14,7 +14,7 @@ const Navbar = () => {
     async function doLogout(){
         try{
             const res = await logout()
-            context.setUser(undefined)
+            context.setUser(null)
             toast.success("Logged Out !!")
             router.push('/')
 
@@ -36,7 +36,7 @@ const Navbar = () => {
 
             <ul className='flex text-slate-100 gap-4'>
                 {
-                    context.user && (
+                    context.user  && (
                         <>
                             <li>
                                 <Link href={"/"}

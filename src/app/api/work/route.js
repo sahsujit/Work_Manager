@@ -1,16 +1,24 @@
 import { connectDb } from "@/config/database";
 import  Work  from "@/model/work";
 import { NextResponse } from "next/server";
+import jwt from "jsonwebtoken"
 connectDb()
 
 export async function POST(request){
     try{
-        const {title, content, user} =await request.json();
+
+        const token = request.cookies.get("token")?.value;
+
+        const data = jwt.verify(token, process.env.JWT_SECRET)
+        console.log(data)
+    
+        const {title, content, user,status} =await request.json();
 
         const work = new Work({
             title,
             content,
-            user,
+            user:data.id,
+            status
         })
 
         await work.save()

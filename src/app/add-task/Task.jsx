@@ -20,7 +20,7 @@ const AddTask = () => {
     title: "",
     content: "",
     status: "",
-    user: "66a2693c7d43c7ac5d2288ae"
+   
   });
 
   const changeHandler = (event) => {
@@ -44,7 +44,7 @@ const AddTask = () => {
         title: "",
         content: "",
         status: "",
-        user: "66a2693c7d43c7ac5d2288ae"
+       
       });
     } catch (error) {
    
@@ -56,9 +56,7 @@ const AddTask = () => {
 
   return (
     <>
-    <Head>
-      <title>Add Tasks : Work Manager</title>
-    </Head>
+    
     <div className='mx-auto py-10 gap-5 w-full text-richblack-50 flex flex-col items-center justify-center'>
       <Image
         src={taskImage}
