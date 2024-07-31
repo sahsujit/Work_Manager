@@ -11,20 +11,20 @@ const Navbar = () => {
     const router = useRouter()
     const context = useContext(UserContext)
 
-    async function doLogout(){
-        try{
+    async function doLogout() {
+        try {
             const res = await logout()
             context.setUser(null)
             toast.success("Logged Out !!")
             router.push('/')
 
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-   
-  
+
+
 
     return (
         <nav className=' px-10 flex h-14 items-center text-richblack-50 justify-between border-b-[1px] border-b-richblack-700  transition-all duration-200'>
@@ -36,7 +36,7 @@ const Navbar = () => {
 
             <ul className='flex text-slate-100 gap-4'>
                 {
-                    context.user  && (
+                    context.user && (
                         <>
                             <li>
                                 <Link href={"/"}
@@ -59,9 +59,16 @@ const Navbar = () => {
                         </>
                     )
                 }
+
+                <li>
+                    <Link href={"/contact"}
+                        className='hover:text-yellow-50 duration-200  transition-all'>
+                       Contact Us
+                    </Link>
+                </li>
             </ul>
 
-            <div className='flex text-slate-200 gap-4'>
+            <div className='flex text-slate-200 items-center gap-4'>
                 {
                     context.user ? (
                         <>
@@ -76,7 +83,7 @@ const Navbar = () => {
 
                             <p>{context.user.firstName}</p>
 
-                           
+
                             <button onClick={doLogout} className="rounded-[8px] border border-richblack-700
                  bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
                                 Logout
@@ -94,6 +101,8 @@ const Navbar = () => {
                             </Link>
                         </>)
                 }
+
+
 
             </div>
 

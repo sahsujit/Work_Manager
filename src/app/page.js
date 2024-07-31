@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HomePage from "../components/HomePage/page";
 
 export const metadata = {
   title: "Home : Work Manager",
@@ -7,7 +8,8 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="flex  flex-col items-center justify-between p-24">
+    <main className="w-full relative ">
+      <HomePage/>
      
     </main>
   );
