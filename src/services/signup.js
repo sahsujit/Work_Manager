@@ -62,3 +62,26 @@ export async function logout(){
 
 
 
+
+
+
+
+export async function deleteUser(userId) {
+    const toastId = toast.loading("Loading...");
+    try {
+        const response = await apiConnector.delete(`/api/user/${userId}`);
+       
+        // console.log(response.data);
+        return response.data;
+
+        
+    } catch (err) {
+        console.error("Error in deleting User:", err);
+        toast.error("Failed to delete User. Please try again.");
+        
+        throw err;
+    } finally {
+        toast.dismiss(toastId);
+    }
+}
+

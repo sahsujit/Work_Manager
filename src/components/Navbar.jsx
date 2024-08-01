@@ -6,6 +6,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useContext } from 'react'
 import toast from 'react-hot-toast'
+import { CgProfile } from "react-icons/cg";
+
+
 
 const Navbar = () => {
     const router = useRouter()
@@ -81,7 +84,9 @@ const Navbar = () => {
                             className="rounded-full"
                             /> */}
 
-                            <p>{context.user.firstName}</p>
+                           <Link href={"/profile/user"}>
+                            <CgProfile size={30} className='cursor-pointer'/>
+                           </Link>
 
 
                             <button onClick={doLogout} className="rounded-[8px] border border-richblack-700
